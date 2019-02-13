@@ -1,0 +1,154 @@
+.container {
+        width: 320px; /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
+        height: 320px;
+        position: relative;
+        border:1px solid #f0f;
+}
+
+.line {
+        width: 100%;
+        height: 2px;
+}
+
+.axes{
+        position: $position;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+
+}
+
+.circle{
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 320px; /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
+        height: 320px;
+        margin: 0 auto;
+        
+        
+        
+}
+.wrapper{
+       width: 80%;
+       margin: 0 auto; 
+}
+.container{
+        margin: 0 auto;
+}
+.absciss{
+        position: $position;
+        top: 50%;
+}
+
+.ordonne{
+        position: $position;
+        @include transform-deg(90);
+        bottom: $bottom;
+
+        
+}
+.oblique135{
+        position: $position;
+        @include transform-deg(45);
+        bottom: $bottom;
+}
+.oblique45{
+        position: $position;
+        @include transform-deg(135);
+        bottom: $bottom;
+}
+.obliquePi1{
+        position: $position;
+        /* transform: rotate(calc(3.142rad / 6)); */
+        @include transform-rotation(1/6);
+        bottom: $bottom;
+}
+.obliquePi2{
+        position: $position;
+        @include transform-rotation(5/6);
+        bottom: $bottom;
+}
+.obliquePi3{
+        position: $position;
+        @include transform-rotation(2/3);
+        bottom: $bottom;
+}
+.obliquePi4{
+        position: $position;
+        @include transform-rotation(1/3);
+        bottom:$bottom;
+}
+/* .verticalLine{
+        position:absolute;
+} */
+.vertical1{
+        position:$position;
+        @include transform-deg(90);
+        bottom: $bottom;
+        left: calc(0% - 138.57px);
+        display:block;
+        
+}
+.vertical2{
+        position: $position;
+        @include transform-deg(90);
+        bottom: $bottom;
+        left: 138.57px;
+}
+.vertical3{
+        position: $position;
+        @include transform-deg(90);
+        bottom:$bottom;
+        left:calc(0% - 80px);
+}
+.vertical4{
+        position: $position;
+        @include transform-deg(90);
+        bottom:$bottom;
+        left:80px;
+}
+.vertical5{
+        position: $position;
+        @include transform-deg(90);
+        bottom:$bottom;
+        left:calc(0% - 113.14px);
+}
+.vertical6{
+        position: $position;
+       @include transform-deg(90);
+        bottom:$bottom;
+        left:113.14px;
+}
+.horizontal1{
+        position: $position;
+        top: 21.43px;
+        
+}
+.horizontal2{
+        position: $position;
+        
+        top:46.86px;
+}
+.horizontal3{
+        position: $position;
+        top: 80px; 
+}
+
+.horizontal4{
+        position: $position;
+        
+        bottom:80px;
+}
+.horizontal5{
+        position: $position;
+        bottom:46.86px;
+        
+}
+.horizontal6{
+        position: $position;
+        bottom:21.43px;
+        
+}
+.line-red, .line-green, .line-blue{
+        display: none;
+}
