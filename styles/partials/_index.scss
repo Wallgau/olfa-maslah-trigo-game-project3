@@ -6,7 +6,7 @@
 }
 
 .line {
-        width: 100%;
+        width:100%;
         height: 2px;
 }
 
@@ -84,71 +84,151 @@
 .vertical1{
         position:$position;
         @include transform-deg(90);
+        @include opposite-side(1);
         bottom: $bottom;
-        left: calc(0% - 138.57px);
+        left: calc(0% - 56px);
         display:block;
         
 }
 .vertical2{
         position: $position;
         @include transform-deg(90);
+        @include opposite-side(1);
         bottom: $bottom;
-        left: 138.57px;
+        left: 216.57px;
 }
 .vertical3{
         position: $position;
         @include transform-deg(90);
+        @include opposite-side(1.73);
         bottom:$bottom;
-        left:calc(0% - 80px);
+        left:calc(0% - 58px);
+          
 }
 .vertical4{
         position: $position;
         @include transform-deg(90);
+        @include opposite-side(1.73);
         bottom:$bottom;
-        left:80px;
+        left: 101px;
 }
 .vertical5{
         position: $position;
         @include transform-deg(90);
         bottom:$bottom;
-        left:calc(0% - 113.14px);
+        left: calc(0% - 66.14px);
+        @include adjacent-side(1.42);
+        
 }
 .vertical6{
         position: $position;
        @include transform-deg(90);
+       @include adjacent-side(1.42);
         bottom:$bottom;
-        left:113.14px;
+         left: 159.14px;
 }
+/* .line-red .line{
+        @include opposite-side(1.42);
+        
+} */
 .horizontal1{
         position: $position;
         top: 21.43px;
+        @include adjacent-side(1);
+        left: 80px;
         
 }
 .horizontal2{
         position: $position;
-        
+        @include opposite-side(1.42);
         top:46.86px;
+        left: 45px;
 }
 .horizontal3{
         position: $position;
+        @include adjacent-side(1.73);
         top: 80px; 
+        left: 20px;
 }
 
 .horizontal4{
         position: $position;
-        
+        @include adjacent-side(1.73);
         bottom:80px;
+        left: 20px;
 }
 .horizontal5{
         position: $position;
         bottom:46.86px;
+        @include opposite-side(1.42);
+        left: 46px;
         
 }
 .horizontal6{
         position: $position;
+        @include adjacent-side(1);
+        left: 80px;
         bottom:21.43px;
         
 }
 .line-red, .line-green, .line-blue{
         display: none;
+}
+.redPi{
+        position: $position;
+        color:red;
+}
+#red-value1{
+        right: 20px;
+        top: 25px;
+}
+#red-value2{
+        left: 20px;
+        top: 26px;
+}
+#red-value3{
+        bottom: 20px;
+        left: 20px;
+}
+#red-value4{
+        right: 20px;
+        bottom: 23px;
+}
+.greenPi{
+        position:$position;
+        color:green;
+}
+#green-value1{
+        top: 57px;
+        right: 0;
+}
+#green-value2{
+        top: 55px;
+        left:-5px;
+}
+#green-value3{
+        bottom: 55px;
+        left:-5px;
+}
+#green-value4{
+        right: -14px;
+        bottom: 55px;
+}
+.bluePi{
+        position:$position;
+        color:blue;
+}
+#blue-value1{
+        right: 50px;
+}
+#blue-value2{
+       left: 55px;
+}
+#blue-value3{
+        bottom: 0;
+        left: 55px;
+}
+#blue-value4{
+        bottom: 0;
+        right: 55px;
 }

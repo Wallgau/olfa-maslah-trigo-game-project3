@@ -2,12 +2,21 @@ $position: absolute;
 $bottom: 50%;
 
 
+
 @mixin transform-rotation($rotate-value) {
     transform: rotateZ($rotate-value * 3.142rad);
     
 }
 @mixin transform-deg($rotate-value) {
     transform: rotateZ($rotate-value * 1deg);
+    
+}
+@mixin adjacent-side($cos) {
+    width: (160px) * $cos;
+    
+}
+@mixin opposite-side($sin) {
+    width: (160px) * $sin;
     
 }
 
