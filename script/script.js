@@ -13,13 +13,13 @@ myApp.setup = function () {
     /* myApp.drawShapes(); */
     myApp.startTimer();
     myApp.randomTrait();
-    myApp.drawShapes();
+    /* myApp.drawShapes(); */
 
 };
 
 
 
-myApp.drawShapes = function () {
+/* myApp.drawShapes = function () {
     //faire apparaitre et disparaitre les line par class au fur et à mesure
     $('.line-red').fadeIn(1000, function () {
         $('.line-red').fadeOut(10000);
@@ -33,7 +33,7 @@ myApp.drawShapes = function () {
             });
         });
     });
-};
+}; */
 
 
 
