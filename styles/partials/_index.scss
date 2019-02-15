@@ -300,3 +300,10 @@
 .active{
         display:block;
 }
+.play-icon{
+        pointer-events: none;//when I click on the icon, allowed us to do like we were clicking on the button
+}
+.active-question{
+        color: white;
+        border: 1px solid black;
+}

@@ -440,3 +440,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 .active {
   display: block; }
+
+.play-icon {
+  pointer-events: none; }
+
+.active-question {
+  color: white;
+  border: 1px solid black; }
