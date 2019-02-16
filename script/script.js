@@ -10,16 +10,16 @@ myApp.init = function () {
 myApp.setup = function () {
 
     //ici on appelle les fonctions qui se produisent au click du button start
-    /* myApp.drawShapes(); */
+    myApp.drawShapes();
     myApp.startTimer();
     myApp.randomTrait();
-    /* myApp.drawShapes(); */
+
 
 };
 
 
 
-/* myApp.drawShapes = function () {
+myApp.drawShapes = function () {
     //faire apparaitre et disparaitre les line par class au fur et à mesure
     $('.line-red').fadeIn(1000, function () {
         $('.line-red').fadeOut(10000);
@@ -33,7 +33,7 @@ myApp.setup = function () {
             });
         });
     });
-}; */
+};
 
 
 
@@ -47,7 +47,8 @@ myApp.randomTrait = function () {
         const sizeTrait = $('.trait').length;
         const randNumb = Math.floor(Math.random() * sizeTrait) + 1;
         const randTest = $(`.trait:nth-child(${randNumb})`);
-        randTest.addClass('active');//Even if I put display:block on my css, I need to add it there because it doesn't listen, comme j'ai déjà un display:none sur cette div avec une autre class.
+        //ajoute attr car jQuery manipule le DOM, our contourner le inline css
+        randTest.addClass('active').attr('style', '');//Even if I put display:block on my css, I need to add it there because it doesn't listen, comme j'ai déjà un display:none sur cette div avec une autre class.
         myApp.randomValue();
         /*  myApp.randCos(); */
     })
@@ -81,6 +82,15 @@ $(document).ready(function () {
     /*  myApp.drawShapes(); */
     myApp.init();
 })
+//créer 3 inputs
+//créer un array ou object avec valeur 
+//mettre les valeurs dans les inputs dont forcément une vraie
+//faire apparaitre tout ça en même temps que le click play
+// au click de l'user récuperer sa valeur 
+//comparer valeur user à la valeur vraie
+//si vraie faire apparaitre la valeur dans le cercle
+// si faut changer background du bouton 
+
 
 
 
