@@ -10,16 +10,15 @@ myApp.init = function () {
 myApp.setup = function () {
 
     //ici on appelle les fonctions qui se produisent au click du button start
-    myApp.drawShapes();
+    /* myApp.drawShapes(); */
     myApp.startTimer();
     myApp.randomTrait();
-
 
 };
 
 
 
-myApp.drawShapes = function () {
+/* myApp.drawShapes = function () {
     //faire apparaitre et disparaitre les line par class au fur et à mesure
     $('.line-red').fadeIn(1000, function () {
         $('.line-red').fadeOut(10000);
@@ -33,7 +32,7 @@ myApp.drawShapes = function () {
             });
         });
     });
-};
+}; */
 
 
 
@@ -57,20 +56,34 @@ myApp.randomTrait = function () {
 };
 //make one Pi value become white, randmoly 
 myApp.randomValue = function () {
+    //to avoid to get 2 empty value 
     $('.active-question').removeClass('active-question');
+    //to avoid to get mutiple true answer
+    $('.linkAnswer').text('');
+    $('.linkAnswer').removeClass('linkAnswer')
+    //get randomly one of the pi div and add a class od 'active-question'
     const sizeAngleValue = $('.active .pi').length;
     const randNumber = Math.floor(Math.random() * sizeAngleValue) + 1;
     const randPi = $(`.active .pi:nth-of-type(${randNumber})`);
     randPi.addClass('active-question');
+    //the pi div with tha class of active question represent the one with the value who is hide by changing color text, so find, add in the ndex of 0 the value of that one ('active-question')
+    const answerTrue = $('.active-question').attr('data-answer');
+    answersPiList[0] = answerTrue;
+    //put this value randomly inside of one of the 3 buttons the true value, it will always be the index of 0 in the answersList array
+
+    const randNumbButton = $('.answers').length;
+    const randButton = Math.floor(Math.random() * randNumbButton) + 1;
+    const randBut = $(`.answers:nth-of-type(${randButton})`);
+    randBut.addClass('linkAnswer');
+    const valueInsert = $('.linkAnswer').text(`${answerTrue}`);
+    console.log(valueInsert);
 
 }
 //make one cos become white randomly
 myApp.randCos = function () {
     const sizeCosValue = $('.active .cos').length;
     const randNum = Math.floor(Math.random() * sizeCosValue) + 1;
-
-    const randCos = $(`.active .cos:nth-of-type(${randNum})`);
-
+    const randCos = $(`.active .cos: nth-of-type(${randNum})`);
     randCos.css({ 'color': 'white', 'border': '1px solid black' });
 }
 
@@ -82,6 +95,8 @@ $(document).ready(function () {
     /*  myApp.drawShapes(); */
     myApp.init();
 })
+
+
 //créer 3 inputs
 //créer un array ou object avec valeur 
 //mettre les valeurs dans les inputs dont forcément une vraie
@@ -89,7 +104,18 @@ $(document).ready(function () {
 // au click de l'user récuperer sa valeur 
 //comparer valeur user à la valeur vraie
 //si vraie faire apparaitre la valeur dans le cercle
-// si faut changer background du bouton 
+// si faut changer background du bouton
+
+
+
+//créer un array ou object avec valeur
+const answersPiList = ["π / 6", "π / 4", "π / 3", "2π / 3", "3π / 4", "5π / 6", "7π /6", "5π /4", "4π /3", "3π /2", "5π /3", "7π /4", "11π /6"];
+
+
+
+
+
+//mettre les valeurs dans les inputs dont forcément une vraie
 
 
 
