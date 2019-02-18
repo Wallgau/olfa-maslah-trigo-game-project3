@@ -136,8 +136,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   width: 320px;
   /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
   height: 320px;
-  position: relative;
-  border: 1px solid #f0f; }
+  position: relative; }
 
 .line {
   width: 100%;

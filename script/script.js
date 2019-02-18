@@ -14,14 +14,13 @@ myApp.setup = function () {
 
     myApp.startTimer();
     myApp.randomTrait();
-    myApp.drawShapes();
-    myApp.feedBack();
+    /*  myApp.drawShapes(); */
 
 };
 
 
 myApp.drawShapes = function () {
-    $('#start').css('display', 'none');
+    /* $('#start').css('display', 'none');
     $('.questions').css('display', 'none');
     //faire apparaitre et disparaitre les line par class au fur et à mesure
     $('.line-red').fadeIn(1000, function () {
@@ -36,7 +35,7 @@ myApp.drawShapes = function () {
                 });
             });
         });
-    });
+    }); */
 };
 
 
@@ -46,6 +45,7 @@ myApp.randomTrait = function () {
     $('button.play').on('click', function (event) {
         event.preventDefault();
         //je cherche à obtenir un nombre en demandant à js combien d'élément avec la class .trait sil y a (length), ce chiffre me permet ensuite d'utiliser Math.floor(Math.random()) pour avoir un chiffre entier aléatoirement
+
         $('.trait').css('display', 'none');
         $('.active').removeClass('active');
         const sizeTrait = $('.trait').length;
@@ -63,13 +63,7 @@ myApp.randomTrait = function () {
 
 //make one Pi value become white, randmoly 
 myApp.randomValue = function () {
-    //to avoid to get 2 empty value 
-    $('.active-question').removeClass('active-question');
-    //to avoid to get mutiple true answer
-    $('.linkAnswer').text('').attr('');
-    $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
-    $('.ready').text('');
-    $('.ready').removeClass('ready');
+    myApp.cleanClass();
     //get randomly one of the pi div and add a class od 'active-question'
     const sizeAngleValue = $('.active .pi').length;
     const randNumber = Math.floor(Math.random() * sizeAngleValue) + 1;
@@ -116,20 +110,34 @@ myApp.randomValue = function () {
 }
 //to give a feedback about the choice answer provide by the user
 myApp.feedBack = function () {
-    $('.feedback-negatif').attr('style', 'display:none');
-    $('.feedback-positif').attr('style', 'display:none');
-    $('.linkAnswer').on('click select', function (event) {
-        event.preventDefault();
-        $('.active .active-question').css('color', 'inherit');
-        $('.feedback-positif').css('display', 'block').append(`<i class="far fa-thumbs-up"></i>`);
-        $('.feedback-negatif').css('display', 'none');
 
-    })
-    $('.answers').on('click select', function (e) {
+    $('.answers').on('click', function (e) {
         e.preventDefault();
-        $('.feedback-negatif').css('display', 'block').append(`<i class="far fa-thumbs-down"></i>`);
-        $('.feedback-positif').css('display', 'none');
+        console.log('No')
+        const isAnswered = $('.feedback-user').hasClass('submitted');
+
+        if (isAnswered !== true) {
+            $('.feedback-user').addClass('submitted');
+            $('.feedback-negatif')
+                .css('display', 'block')
+                .append(`<i class="far fa-thumbs-down"></i>`);
+            $('.feedback-positif').css('display', 'none');
+        }
     })
+    $('.linkAnswer').on('click', function (e) {
+        console.log('yes')
+        e.preventDefault();
+        const isAnswered = $('.feedback-user').hasClass('submitted');
+
+        if (isAnswered !== true) {
+            $('.feedback-user').addClass('submitted');
+            $('.feedback-positif')
+                .css('display', 'block')
+                .append(`<i class="far fa-thumbs-up"></i>`);
+            $('.feedback-negatif').css('display', 'none');
+        }
+    })
+
 }
 
 
@@ -157,7 +165,20 @@ $(document).ready(function () {
     /*  myApp.drawShapes(); */
     myApp.init();
 })
-
+myApp.cleanClass = function () {
+    $('.feedback-negatif').css('display', 'none');
+    $('.feedback-positif').css('display', 'none');
+    $('.feedback-user').removeClass('submitted');
+    $('.fa-thumbs-up').remove();
+    $('.fa-thumbs-down').remove();
+    //to avoid to get 2 empty value 
+    $('.active-question').removeClass('active-question');
+    //to avoid to get mutiple true answer
+    $('.linkAnswer').text('').attr('');
+    $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
+    $('.ready').text('');
+    $('.ready').removeClass('ready');
+}
 
 //créer 3 inputs
 //créer un array ou object avec valeur 
