@@ -1,4 +1,5 @@
-
+//créer un array ou object avec valeur
+const answersPiList = ["π/6", "π/4", "π/3", "2π/3", "3π/4", "5π/6", "7π/6", "5π/4", "4π/3", "3π/2", "5π/3", "7π/4", "11π/6"];
 //when document is ready, on click of the button with a class='fa-play-circle' prevent the default event
 const myApp = {};
 //on créer une fonction sur myApp pour organiser correctement le code, ici myApp contient ce qui arrive dans myApp.setup
@@ -10,7 +11,7 @@ myApp.init = function () {
 myApp.setup = function () {
 
     //ici on appelle les fonctions qui se produisent au click du button start
-    /* myApp.drawShapes(); */
+    /*  myApp.drawShapes(); */
     myApp.startTimer();
     myApp.randomTrait();
 
@@ -47,20 +48,24 @@ myApp.randomTrait = function () {
         const randNumb = Math.floor(Math.random() * sizeTrait) + 1;
         const randTest = $(`.trait:nth-child(${randNumb})`);
         //ajoute attr car jQuery manipule le DOM, our contourner le inline css
-        randTest.addClass('active').attr('style', '');//Even if I put display:block on my css, I need to add it there because it doesn't listen, comme j'ai déjà un display:none sur cette div avec une autre class.
+        randTest.addClass('active').attr('style', '');
+        //Even if I put display:block on my css, I need to add it there because it doesn't listen, comme j'ai déjà un display:none sur cette div avec une autre class.
         myApp.randomValue();
         /*  myApp.randCos(); */
     })
 
 
 };
+
 //make one Pi value become white, randmoly 
 myApp.randomValue = function () {
     //to avoid to get 2 empty value 
     $('.active-question').removeClass('active-question');
     //to avoid to get mutiple true answer
     $('.linkAnswer').text('');
-    $('.linkAnswer').removeClass('linkAnswer')
+    $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
+    $('.ready').text('');
+    $('.ready').removeClass('ready');
     //get randomly one of the pi div and add a class od 'active-question'
     const sizeAngleValue = $('.active .pi').length;
     const randNumber = Math.floor(Math.random() * sizeAngleValue) + 1;
@@ -68,22 +73,57 @@ myApp.randomValue = function () {
     randPi.addClass('active-question');
     //the pi div with tha class of active question represent the one with the value who is hide by changing color text, so find, add in the ndex of 0 the value of that one ('active-question')
     const answerTrue = $('.active-question').attr('data-answer');
-    answersPiList[0] = answerTrue;
+
     //put this value randomly inside of one of the 3 buttons the true value, it will always be the index of 0 in the answersList array
 
     const randNumbButton = $('.answers').length;
     const randButton = Math.floor(Math.random() * randNumbButton) + 1;
     const randBut = $(`.answers:nth-of-type(${randButton})`);
-    randBut.addClass('linkAnswer');
+    randBut.addClass('linkAnswer').removeClass('answers');
     const valueInsert = $('.linkAnswer').text(`${answerTrue}`);
-    console.log(valueInsert);
+    /* const trueAnswerIndex = answersPiList.findIndex(function (answer) {
+        return answer === (`${answerTrue}`) */
 
-}
+
+    const newArray = answersPiList.filter(function (answer) {
+        if (answer !== answerTrue) {
+            return answer;
+        };
+
+    })
+    const nNewArray = newArray.filter(function (answer) {
+        if (answer !== undefined) {
+            return answer;
+        }
+    })
+    console.log(nNewArray)
+    const nNewArrayLength = nNewArray.length;
+    const randValueButton = Math.floor(Math.random() * nNewArrayLength) + 1;
+    const randValueBut = $(`.answers:nth-of-type(${randValueButton})`);
+    console.log(randValueBut)
+    randValueBut.addClass('ready');
+    const valuenNewArray = nNewArray[randValueButton];
+    console.log(valuenNewArray);
+    const answerFalse = $('.ready').text(`${valuenNewArray}`)
+
+
+}   /* const insertValue = randValueBut.text(`.text(`nNewArray[${randValueButton}]`));* /
+
+
+
+
+
+
+
+
+    /* answersPiList.splice(trueAnswerIndex, 1)  */
+
+
 //make one cos become white randomly
 myApp.randCos = function () {
     const sizeCosValue = $('.active .cos').length;
     const randNum = Math.floor(Math.random() * sizeCosValue) + 1;
-    const randCos = $(`.active .cos: nth-of-type(${randNum})`);
+    const randCos = $(`.active.cos: nth - of - type(${randNum})`);
     randCos.css({ 'color': 'white', 'border': '1px solid black' });
 }
 
@@ -108,8 +148,6 @@ $(document).ready(function () {
 
 
 
-//créer un array ou object avec valeur
-const answersPiList = ["π / 6", "π / 4", "π / 3", "2π / 3", "3π / 4", "5π / 6", "7π /6", "5π /4", "4π /3", "3π /2", "5π /3", "7π /4", "11π /6"];
 
 
 
