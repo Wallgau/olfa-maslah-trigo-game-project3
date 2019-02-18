@@ -175,6 +175,15 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   transform: rotateZ(90deg);
   bottom: 50%; }
 
+.line-green {
+  color: green; }
+
+.line-blue {
+  color: blue; }
+
+.line-red {
+  color: red; }
+
 .oblique135 {
   position: absolute;
   -webkit-transform: rotateZ(45deg);
@@ -447,3 +456,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 .active-question {
   color: white;
   border: 1px solid black; }
+
+.notUsed {
+  display: none; }
+
+ul {
+  list-style: none; }

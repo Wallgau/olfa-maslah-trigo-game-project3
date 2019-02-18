@@ -14,27 +14,31 @@ myApp.setup = function () {
     /*  myApp.drawShapes(); */
     myApp.startTimer();
     myApp.randomTrait();
+    /* myApp.drawShapes(); */
+    myApp.feedBack();
 
 };
 
 
-
-/* myApp.drawShapes = function () {
-    //faire apparaitre et disparaitre les line par class au fur et à mesure
-    $('.line-red').fadeIn(1000, function () {
-        $('.line-red').fadeOut(10000);
-        $('.line-blue').fadeIn(10000, function () {
-            $('.line-blue').fadeOut(10000);
-            $('.line-green').fadeIn(10000, function () {
-                $('.line-green').fadeOut('fast')
-                $('.trait').fadeIn(10000, function () {
-                    $('.trait').fadeOut('fast');
-                });
-            });
-        });
-    });
-}; */
-
+myApp.drawShapes = function () {
+    /*  $('#start').css('display', 'none');
+     $('.questions').css('display', 'none');
+     //faire apparaitre et disparaitre les line par class au fur et à mesure
+     $('.line-red').fadeIn(1000, function () {
+         $('.line-red').fadeOut(10000);
+         $('.line-blue').fadeIn(10000, function () {
+             $('.line-blue').fadeOut(10000);
+             $('.line-green').fadeIn(10000, function () {
+                 $('.line-green').fadeOut('fast')
+                 $('.trait').fadeIn(10000, function () {
+                     $('.trait').fadeOut('fast');
+                     $('#start').css('display', 'block');
+                     $('.questions').css('display', 'block');
+                 });
+             });
+         });
+     }); */
+};
 
 
 
@@ -60,6 +64,7 @@ myApp.randomTrait = function () {
 //make one Pi value become white, randmoly 
 myApp.randomValue = function () {
     //to avoid to get 2 empty value 
+
     $('.active-question').removeClass('active-question');
     //to avoid to get mutiple true answer
     $('.linkAnswer').text('').attr('');
@@ -97,23 +102,36 @@ myApp.randomValue = function () {
             return answer;
         }
     })
-    console.log(nNewArray)
-    console.log(answersPiList);
+
     const randValueBut = $(`.answers`).length;
     const randInput = Math.floor(Math.random() * randValueBut) + 1;
     const randNumButton = $(`.answers:nth-of-type(${randInput})`);
     randNumButton.addClass('ready');
-
     const nNewArrayLength = nNewArray.length;
     const randValueButton = Math.floor(Math.random() * (nNewArrayLength - 1));
-    console.log(randValueButton)
-    console.log(nNewArrayLength, newArray.length)
-    console.log(nNewArray[0])
     const valuenNewArray = nNewArray[randValueButton];
     const answerFalse = $('.ready').text(`${valuenNewArray}`)
+    myApp.feedBack();
 
 
-}   /* const insertValue = randValueBut.text(`.text(`nNewArray[${randValueButton}]`));* /
+}
+//to give a feedback about the choice answer provide by the user
+myApp.feedBack = function () {
+    $('.feedback-negatif').css('display', 'none');
+    $('.feedback-positif').css('display', 'none');
+    $('.linkAnswer').on('click select', function (event) {
+        event.preventDefault();
+        $('.active .active-question').css('color', 'inherit');
+        $('.feedback-positif').css('display', 'block').append(`<i class="far fa-thumbs-up"></i>`);
+        $('.feedback-negatif').css('display', 'none');
+
+    })
+    $('.answers').on('click select', function (e) {
+        e.preventDefault();
+        $('.feedback-negatif').css('display', 'block').append(`<i class="far fa-thumbs-down"></i>`);
+        $('.feedback-positif').css('display', 'none');
+    })
+}
 
 
 
@@ -121,8 +139,7 @@ myApp.randomValue = function () {
 
 
 
-
-    /* answersPiList.splice(trueAnswerIndex, 1)  */
+/* answersPiList.splice(trueAnswerIndex, 1)  */
 
 
 //make one cos become white randomly
