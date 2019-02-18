@@ -97,11 +97,15 @@ myApp.randomValue = function () {
         }
     })
     console.log(nNewArray)
+
+    const randValueBut = $(`.answers`).length;
+    const randInput = Math.floor(Math.random() * randValueBut) + 1;
+    const randNumButton = $(`.answers:nth-of-type(${randInput})`);
+    console.log(randNumButton)
+    randNumButton.addClass('ready');
+
     const nNewArrayLength = nNewArray.length;
     const randValueButton = Math.floor(Math.random() * nNewArrayLength) + 1;
-    const randValueBut = $(`.answers:nth-of-type(${randValueButton})`);
-    console.log(randValueBut)
-    randValueBut.addClass('ready');
     const valuenNewArray = nNewArray[randValueButton];
     console.log(valuenNewArray);
     const answerFalse = $('.ready').text(`${valuenNewArray}`)
