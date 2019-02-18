@@ -91,23 +91,25 @@ myApp.randomValue = function () {
         };
 
     })
+
     const nNewArray = newArray.filter(function (answer) {
         if (answer !== undefined) {
             return answer;
         }
     })
     console.log(nNewArray)
-
+    console.log(answersPiList);
     const randValueBut = $(`.answers`).length;
     const randInput = Math.floor(Math.random() * randValueBut) + 1;
     const randNumButton = $(`.answers:nth-of-type(${randInput})`);
-    console.log(randNumButton)
     randNumButton.addClass('ready');
 
     const nNewArrayLength = nNewArray.length;
-    const randValueButton = Math.floor(Math.random() * nNewArrayLength) + 1;
+    const randValueButton = Math.floor(Math.random() * (nNewArrayLength - 1));
+    console.log(randValueButton)
+    console.log(nNewArrayLength, newArray.length)
+    console.log(nNewArray[0])
     const valuenNewArray = nNewArray[randValueButton];
-    console.log(valuenNewArray);
     const answerFalse = $('.ready').text(`${valuenNewArray}`)
 
 
