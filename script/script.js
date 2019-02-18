@@ -110,8 +110,8 @@ myApp.randomValue = function () {
 }
 //to give a feedback about the choice answer provide by the user
 myApp.feedBack = function () {
-
-    $('.answers').on('click', function (e) {
+    //.unbind avoid that the function been called again and again...remove the button from previous action
+    $('.answers').off().on('click', function (e) {
         e.preventDefault();
         console.log('No')
         const isAnswered = $('.feedback-user').hasClass('submitted');
@@ -124,7 +124,7 @@ myApp.feedBack = function () {
             $('.feedback-positif').css('display', 'none');
         }
     })
-    $('.linkAnswer').on('click', function (e) {
+    $('.linkAnswer').off().on('click', function (e) {
         console.log('yes')
         e.preventDefault();
         const isAnswered = $('.feedback-user').hasClass('submitted');
@@ -161,10 +161,7 @@ myApp.startTimer = function () {
     console.log('start counter');
 }
 
-$(document).ready(function () {
-    /*  myApp.drawShapes(); */
-    myApp.init();
-})
+
 myApp.cleanClass = function () {
     $('.feedback-negatif').css('display', 'none');
     $('.feedback-positif').css('display', 'none');
@@ -179,6 +176,10 @@ myApp.cleanClass = function () {
     $('.ready').text('');
     $('.ready').removeClass('ready');
 }
+$(document).ready(function () {
+    /*  myApp.drawShapes(); */
+    myApp.init();
+})
 
 //créer 3 inputs
 //créer un array ou object avec valeur 
