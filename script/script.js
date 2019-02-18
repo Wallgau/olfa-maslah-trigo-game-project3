@@ -11,33 +11,32 @@ myApp.init = function () {
 myApp.setup = function () {
 
     //ici on appelle les fonctions qui se produisent au click du button start
-    /*  myApp.drawShapes(); */
+
     myApp.startTimer();
     myApp.randomTrait();
-    /* myApp.drawShapes(); */
+    myApp.drawShapes();
     myApp.feedBack();
 
 };
 
 
 myApp.drawShapes = function () {
-    /*  $('#start').css('display', 'none');
-     $('.questions').css('display', 'none');
-     //faire apparaitre et disparaitre les line par class au fur et à mesure
-     $('.line-red').fadeIn(1000, function () {
-         $('.line-red').fadeOut(10000);
-         $('.line-blue').fadeIn(10000, function () {
-             $('.line-blue').fadeOut(10000);
-             $('.line-green').fadeIn(10000, function () {
-                 $('.line-green').fadeOut('fast')
-                 $('.trait').fadeIn(10000, function () {
-                     $('.trait').fadeOut('fast');
-                     $('#start').css('display', 'block');
-                     $('.questions').css('display', 'block');
-                 });
-             });
-         });
-     }); */
+    $('#start').css('display', 'none');
+    $('.questions').css('display', 'none');
+    //faire apparaitre et disparaitre les line par class au fur et à mesure
+    $('.line-red').fadeIn(1000, function () {
+        $('.line-red').fadeOut(10000);
+        $('.line-blue').fadeIn(10000, function () {
+            $('.line-blue').fadeOut(10000);
+            $('.line-green').fadeIn(10000, function () {
+                $('.line-green').fadeOut('fast')
+                $('.trait').fadeIn(10000, function () {
+                    $('#start').css('display', 'block');
+                    $('.questions').css('display', 'block');
+                });
+            });
+        });
+    });
 };
 
 
@@ -47,6 +46,7 @@ myApp.randomTrait = function () {
     $('button.play').on('click', function (event) {
         event.preventDefault();
         //je cherche à obtenir un nombre en demandant à js combien d'élément avec la class .trait sil y a (length), ce chiffre me permet ensuite d'utiliser Math.floor(Math.random()) pour avoir un chiffre entier aléatoirement
+        $('.trait').css('display', 'none');
         $('.active').removeClass('active');
         const sizeTrait = $('.trait').length;
         const randNumb = Math.floor(Math.random() * sizeTrait) + 1;
@@ -64,7 +64,6 @@ myApp.randomTrait = function () {
 //make one Pi value become white, randmoly 
 myApp.randomValue = function () {
     //to avoid to get 2 empty value 
-
     $('.active-question').removeClass('active-question');
     //to avoid to get mutiple true answer
     $('.linkAnswer').text('').attr('');
@@ -117,8 +116,8 @@ myApp.randomValue = function () {
 }
 //to give a feedback about the choice answer provide by the user
 myApp.feedBack = function () {
-    $('.feedback-negatif').css('display', 'none');
-    $('.feedback-positif').css('display', 'none');
+    $('.feedback-negatif').attr('style', 'display:none');
+    $('.feedback-positif').attr('style', 'display:none');
     $('.linkAnswer').on('click select', function (event) {
         event.preventDefault();
         $('.active .active-question').css('color', 'inherit');

@@ -29,8 +29,9 @@
         
 }
 .wrapper{
-       width: 80%;
-       margin: 0 auto; 
+       width: 98%;
+       transform: scale(0.9);
+       margin: 0 auto;
 }
 .container{
         margin: 0 auto;
@@ -322,4 +323,9 @@
 }
 ul{
         list-style:none;
+}
+footer p{
+        background-color: grey;
+        padding: 1%;
+        text-align: center;
 }
