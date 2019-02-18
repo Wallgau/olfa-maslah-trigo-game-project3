@@ -110,7 +110,7 @@ myApp.randomValue = function () {
 }
 //to give a feedback about the choice answer provide by the user
 myApp.feedBack = function () {
-    //.unbind avoid that the function been called again and again...remove the button from previous action
+    //I use .off avoid that the function been called again and again...remove the button from previous action
     $('.answers').off().on('click', function (e) {
         e.preventDefault();
         console.log('No')
@@ -128,6 +128,7 @@ myApp.feedBack = function () {
         console.log('yes')
         e.preventDefault();
         const isAnswered = $('.feedback-user').hasClass('submitted');
+        $('.active-question').css('color', 'inherit');
 
         if (isAnswered !== true) {
             $('.feedback-user').addClass('submitted');
