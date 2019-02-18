@@ -62,7 +62,7 @@ myApp.randomValue = function () {
     //to avoid to get 2 empty value 
     $('.active-question').removeClass('active-question');
     //to avoid to get mutiple true answer
-    $('.linkAnswer').text('');
+    $('.linkAnswer').text('').attr('');
     $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
     $('.ready').text('');
     $('.ready').removeClass('ready');
