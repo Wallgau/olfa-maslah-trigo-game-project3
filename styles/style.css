@@ -436,9 +436,13 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   height: 320px;
   position: relative; }
 
+html {
+  height: 100vh; }
+
 body {
   position: relative;
-  height: 120vh; }
+  max-height: 160vh;
+  height: 150vh; }
 
 .wrapper {
   width: 98%;
@@ -491,26 +495,29 @@ button {
   text-align: center;
   font-size: 3rem; }
 
+@media screen and (min-width: 360px) {
+  body {
+    height: 130vh; }
+  header {
+    padding: 5% 0; } }
+
 @media screen and (min-width: 768px) {
   .wrapper {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+    -webkit-transform: scale(1.38);
+    -ms-transform: scale(1.38);
+    transform: scale(1.38);
     max-width: 75%; }
   body {
     position: relative;
-    height: 150vh; }
-  .play {
-    width: 30%; } }
+    height: 110vh; }
+  #start {
+    width: 40%; }
+  .feedback {
+    margin-top: 15%; } }
 
 @media screen and (min-width: 1000px) {
   header {
-    padding: 3% 0;
-    margin-bottom: 8%; }
-  .play {
-    width: 15%; }
-  body {
-    height: 160vh; } }
+    padding: 3% 0; } }
 
 header {
   padding: 1% 0;

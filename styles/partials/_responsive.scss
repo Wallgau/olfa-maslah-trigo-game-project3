@@ -1,26 +1,33 @@
+@media screen and (min-width: 360px){
+	body{
+		height: 130vh;
+	}
+	header{
+		padding: 5% 0;
+	}
+}
 @media screen and (min-width: 768px){
         .wrapper{
-                transform:scale(1);
+                transform:scale(1.38);
                 max-width: 75%;
         }
         body{
         position:relative;
-        height: 150vh;
+        height: 110vh;
         }
-        .play{
-                width: 30%
+        #start{
+                width: 40%
         }
+	.feedback{
+		margin-top:15%;
+	}
 }
 @media screen and (min-width: 1000px){
 
         header{
                 padding: 3% 0;
-                margin-bottom: 8%;
+                
         }
-        .play{
-                width: 15%;
-        }
-        body{
-                height: 160vh
-        }
+        
+        
 }

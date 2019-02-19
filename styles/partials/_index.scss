@@ -4,9 +4,13 @@
         position: relative;
        
 }
+html{
+        height: 100vh
+}
 body{
         position:relative;
-        height: 120vh;
+        max-height: 160vh;
+        height: 150vh;
 }
 
 .wrapper{
