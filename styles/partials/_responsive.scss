@@ -1,7 +1,5 @@
 @media screen and (min-width: 360px){
-	body{
-		height: 130vh;
-	}
+	
 	header{
 		padding: 5% 0;
 	}
@@ -11,10 +9,7 @@
                 transform:scale(1.38);
                 max-width: 75%;
         }
-        body{
-        position:relative;
-        height: 110vh;
-        }
+        
         #start{
                 width: 40%
         }
@@ -30,4 +25,4 @@
         }
         
         
-}
+} 
