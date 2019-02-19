@@ -132,11 +132,16 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.container {
-  width: 320px;
-  /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
-  height: 320px;
-  position: relative; }
+.absciss {
+  position: absolute;
+  top: 50%; }
+
+.ordonne {
+  position: absolute;
+  -webkit-transform: rotateZ(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotateZ(90deg);
+  bottom: 50%; }
 
 .line {
   width: 100%;
@@ -155,36 +160,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
   height: 320px;
   margin: 0 auto; }
-
-.wrapper {
-  width: 98%;
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
-  margin: 0 auto; }
-
-.container {
-  margin: 0 auto; }
-
-.absciss {
-  position: absolute;
-  top: 50%; }
-
-.ordonne {
-  position: absolute;
-  -webkit-transform: rotateZ(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotateZ(90deg);
-  bottom: 50%; }
-
-.line-green {
-  color: green; }
-
-.line-blue {
-  color: blue; }
-
-.line-red {
-  color: red; }
 
 .oblique135 {
   position: absolute;
@@ -229,9 +204,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   transform: rotateZ(1.04733rad);
   bottom: 50%; }
 
-/* .verticalLine{
-        position:absolute;
-} */
 .vertical1 {
   position: absolute;
   -webkit-transform: rotateZ(90deg);
@@ -321,6 +293,15 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   width: 160px;
   left: 80px;
   bottom: 21.43px; }
+
+.line-green {
+  color: green; }
+
+.line-blue {
+  color: blue; }
+
+.line-red {
+  color: red; }
 
 .line-red, .line-green, .line-blue {
   display: none; }
@@ -449,23 +430,145 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   bottom: -15px;
   right: 55px; }
 
+.container {
+  width: 320px;
+  /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
+  height: 320px;
+  position: relative; }
+
+body {
+  position: relative;
+  height: 120vh; }
+
+.wrapper {
+  width: 98%;
+  max-width: 1200px;
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  margin: 0 auto; }
+
+.container {
+  margin: 0 auto;
+  margin-bottom: 10%; }
+
+button:hover {
+  color: darkcyan;
+  font-weight: 900;
+  background-color: beige; }
+
+button:focus {
+  background-color: yellow; }
+
+button:active {
+  background-color: maroon; }
+
+button {
+  -webkit-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
+  transition: all 1.5s ease; }
+
 .active {
   display: block; }
-
-.play-icon {
-  pointer-events: none; }
 
 .active-question {
   color: white;
   border: 1px solid black; }
 
+.questions {
+  text-align: center;
+  padding-bottom: 5%; }
+
+.questions button {
+  width: 20%;
+  padding: 2%;
+  border-radius: 10px;
+  margin: 2%;
+  -webkit-box-shadow: 3px 3px gray;
+  box-shadow: 3px 3px gray; }
+
+.feedback {
+  text-align: center;
+  font-size: 3rem; }
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    max-width: 75%; }
+  body {
+    position: relative;
+    height: 150vh; }
+  .play {
+    width: 30%; } }
+
+@media screen and (min-width: 1000px) {
+  header {
+    padding: 3% 0;
+    margin-bottom: 8%; }
+  .play {
+    width: 15%; }
+  body {
+    height: 160vh; } }
+
+header {
+  padding: 1% 0;
+  background: lightgray;
+  margin-bottom: 10%;
+  font-family: 'Lato', sans-serif;
+  text-align: center; }
+
+header p {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700; }
+
+header .name-game {
+  font-weight: 900;
+  font-size: 2rem; }
+
+.memorise-test {
+  display: none; }
+
+.try-again {
+  display: none; }
+
+.well-done {
+  display: none; }
+
 .notUsed {
   display: none; }
 
 ul {
-  list-style: none; }
+  list-style: none;
+  padding: 0; }
+
+nav {
+  max-width: 80%;
+  text-align: center;
+  margin: 0 auto; }
+
+.play {
+  margin: 0 auto;
+  font-size: 3rem;
+  border-radius: 10px;
+  background: white;
+  -webkit-box-shadow: 5px 5px gray;
+  box-shadow: 5px 5px gray;
+  width: 80%;
+  padding: 2%; }
+
+.play-icon {
+  pointer-events: none; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
 footer p {
   background-color: grey;
   padding: 1%;
-  text-align: center; }
+  text-align: center;
+  margin: 0; }

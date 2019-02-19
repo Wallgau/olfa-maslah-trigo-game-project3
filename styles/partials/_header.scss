@@ -1,0 +1,50 @@
+header{
+        padding: 1% 0;
+        background: lightgray;
+        margin-bottom: 10%;
+        font-family: 'Lato', sans-serif;
+        text-align:center;
+}
+header p{
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 700;
+}
+header .name-game{
+        font-weight: 900;
+        font-size: 2rem;
+
+}
+.memorise-test{
+        display:none;
+}
+.try-again{
+        display:none;
+}
+.well-done{
+        display:none;
+}
+.notUsed{
+        display:none; 
+}
+ul{
+        list-style:none;
+	 padding:0;
+}
+nav{
+        max-width: 80%;
+        text-align: center;
+        margin:0 auto;
+}
+.play{
+            margin: 0 auto;
+            font-size: 3rem;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 5px 5px gray;
+            width: 80%;
+            padding: 2%;
+}
+.play-icon{
+        pointer-events: none;//when I click on the icon, allowed us to do like we were clicking on the button
+}

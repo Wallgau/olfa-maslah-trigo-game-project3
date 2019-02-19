@@ -4,328 +4,66 @@
         position: relative;
        
 }
-
-.line {
-        width:100%;
-        height: 2px;
+body{
+        position:relative;
+        height: 120vh;
 }
 
-.axes{
-        position: $position;
-        top: 0;
-        width: 100%;
-        bottom: 0;
-
-}
-
-.circle{
-        border: 2px solid black;
-        border-radius: 50%;
-        width: 320px; /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
-        height: 320px;
-        margin: 0 auto;
-        
-        
-        
-}
 .wrapper{
        width: 98%;
-       transform: scale(0.9);
+       max-width: 1200px;
+       transform: scale(0.8);
        margin: 0 auto;
 }
 .container{
         margin: 0 auto;
-}
-.absciss{
-        position: $position;
-        top: 50%;
+        margin-bottom: 10%;
 }
 
-.ordonne{
-        position: $position;
-        @include transform-deg(90);
-        bottom: $bottom;
 
+// start proposition answer and feedback of value to find
+button:hover{
+        color: darkcyan;
+        font-weight:900;
+        background-color:beige;
         
 }
-.line-green{
-        color:green;
+button:focus{
+        background-color: yellow;
+        
 }
-.line-blue{
-        color:blue;
-}
-.line-red{
-        color:red
-}
-.oblique135{
-        position: $position;
-        @include transform-deg(45);
-        bottom: $bottom;
-}
-.oblique45{
-        position: $position;
-        @include transform-deg(135);
-        bottom: $bottom;
-}
-.obliquePi1{
-        position: $position;
-        /* transform: rotate(calc(3.142rad / 6)); */
-        @include transform-rotation(1/6);
-        bottom: $bottom;
-}
-.obliquePi2{
-        position: $position;
-        @include transform-rotation(5/6);
-        bottom: $bottom;
-}
-.obliquePi3{
-        position: $position;
-        @include transform-rotation(2/3);
-        bottom: $bottom;
-}
-.obliquePi4{
-        position: $position;
-        @include transform-rotation(1/3);
-        bottom:$bottom;
-}
-/* .verticalLine{
-        position:absolute;
-} */
-.vertical1{
-        position:$position;
-        @include transform-deg(90);
-        @include opposite-side(1);
-        bottom: $bottom;
-        left: calc(0% - 56px);
+button:active{
+        background-color: maroon;
        
-        
 }
-.vertical2{
-        position: $position;
-        @include transform-deg(90);
-        @include opposite-side(1);
-        bottom: $bottom;
-        left: 216.57px;
-}
-.vertical3{
-        position: $position;
-        @include transform-deg(90);
-        @include opposite-side(1.73);
-        bottom:$bottom;
-        left:calc(0% - 58px);
-          
-}
-.vertical4{
-        position: $position;
-        @include transform-deg(90);
-        @include opposite-side(1.73);
-        bottom:$bottom;
-        left: 101px;
-}
-.vertical5{
-        position: $position;
-        @include transform-deg(90);
-        bottom:$bottom;
-        left: calc(0% - 66.14px);
-        @include adjacent-side(1.42);
-        
-}
-.vertical6{
-        position: $position;
-       @include transform-deg(90);
-       @include adjacent-side(1.42);
-        bottom:$bottom;
-         left: 159.14px;
+button{
+        transition: all 1.5s ease;
 }
 
-.horizontal1{
-        position: $position;
-        top: 21.43px;
-        @include adjacent-side(1);
-        left: 80px;
-        
-}
-.horizontal2{
-        position: $position;
-        @include opposite-side(1.42);
-        top:46.86px;
-        left: 45px;
-}
-.horizontal3{
-        position: $position;
-        @include adjacent-side(1.73);
-        top: 80px; 
-        left: 20px;
-}
-
-.horizontal4{
-        position: $position;
-        @include adjacent-side(1.73);
-        bottom:80px;
-        left: 20px;
-        
-}
-.horizontal5{
-        position: $position;
-        bottom:46.86px;
-        @include opposite-side(1.42);
-        left: 46px;
-        
-}
-.horizontal6{
-        position: $position;
-        @include adjacent-side(1);
-        left: 80px;
-        bottom:21.43px;
-        
-}
-.line-red, .line-green, .line-blue{
-        display: none ;
-}
-.red-cos, .red-sin{
-        position:$position;
-        color:red;
-}
-.green-cos, .green-sin{
-        position:$position;
-        color:green;
-}
-.blue-cos, .blue-sin{
-        position:$position;
-        color: blue;
-}
-.blue-cos-value-pos{
-        right: 80px;
-        top: 47%;
-}
-.blue-sin-value-neg{
-        left: 51%;
-        bottom: -10px;
-        
-}
-.blue-cos-value-neg{
-        top: 46%;
-        left: 82px;
-}
-.blue-sin-value-pos{
-        left: 51%;
-        top: -10px;
-}
-.red-cos-value-pos{
-        left: 51%;
-        top: 15px;
-}
-.red-cos-value-neg{
-        bottom: 11px;
-        left: 51%;
-}
-.red-sin-value-neg{
-        top: 39%;
-        left: 47px;
-}
-.red-sin-value-pos{
-        top: 39%;
-        right: 46px;
-}
-.red-cos, .red-sin{
-        position:$position;
-        color:red;
-}
-.green-cos-value-pos{
-        right: 11px;
-        top: 48%;
-}
-.green-cos-value-neg{
-        left: 23px;
-        top: 47%;
-}
-.green-sin-value-neg{
-        left: 51%;
-        bottom: 45px;
-}
-.green-sin-value-pos{
-        top: 14%;
-        left: 50%;
-}
-.redPi{
-        position: $position;
-        color:red;
-}
-#red-value1{
-        right: 15px;
-        top: 25px;
-}
-#red-value2{
-        left: 10px;
-        top: 26px;
-}
-#red-value3{
-        bottom: 10px;
-        left: 20px;
-}
-#red-value4{
-        right: 7px;
-        bottom: 23px;
-}
-.greenPi{
-        position:$position;
-        color:green;
-}
-
-#green-value1{
-        top: 57px;
-        right: -15px;
-}
-#green-value2{
-        top: 55px;
-        left:-15px;
-}
-#green-value3{
-        bottom: 55px;
-        left:-15px;
-}
-#green-value4{
-        right: -22px;
-        bottom: 55px;
-}
-.bluePi{
-        position:$position;
-        color:blue;
-}
-#blue-value1{
-        top: -10px;
-        right: 49px;
-}
-#blue-value2{
-       left: 49px;
-       top: -10px;
-}      
-#blue-value3{
-        bottom: -15px;
-        left: 55px;
-}
-#blue-value4{
-        bottom: -15px;
-        right: 55px;
-}
 .active{
         display:block;
 }
-.play-icon{
-        pointer-events: none;//when I click on the icon, allowed us to do like we were clicking on the button
-}
+
 .active-question{
         color: white;
         border: 1px solid black;
 }
-.notUsed{
-        display:none; 
+
+.questions{
+        text-align:center;
+        padding-bottom: 5%;
+        
 }
-ul{
-        list-style:none;
+.questions button{
+        width: 20%;
+        padding: 2%;
+        border-radius: 10px;
+        margin: 2%;
+        box-shadow: 3px 3px gray;
 }
-footer p{
-        background-color: grey;
-        padding: 1%;
+.feedback{
         text-align: center;
+        font-size: 3rem;
 }
+//end proposition answer and feedback to value to find
+

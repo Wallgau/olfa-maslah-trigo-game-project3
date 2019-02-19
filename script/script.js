@@ -13,28 +13,30 @@ myApp.setup = function () {
     //ici on appelle les fonctions qui se produisent au click du button start
 
     myApp.randomTrait();
-    /*  myApp.drawShapes(); */
+    myApp.drawShapes();
 
 };
 
 
 myApp.drawShapes = function () {
-    /* $('#start').css('display', 'none');
+    $('#start').css('display', 'none');
     $('.questions').css('display', 'none');
     //faire apparaitre et disparaitre les line par class au fur et à mesure
-    $('.line-red').fadeIn(1000, function () {
-        $('.line-red').fadeOut(10000);
-        $('.line-blue').fadeIn(10000, function () {
-            $('.line-blue').fadeOut(10000);
-            $('.line-green').fadeIn(10000, function () {
-                $('.line-green').fadeOut('fast')
-                $('.trait').fadeIn(10000, function () {
-                    $('#start').css('display', 'block');
+    $('.line-red').fadeIn(5000, function () {
+        $('.line-red').fadeOut(1000);
+        $('.line-blue').fadeIn(5000, function () {
+            $('.line-blue').fadeOut(1000);
+            $('.line-green').fadeIn(5000, function () {
+                $('.line-green').fadeOut(1000)
+                $('.trait').fadeIn(2000, function () {
                     $('.questions').css('display', 'block');
+                    $('.memorise-instruction').css('display', 'none');
+                    $('.memorise-test').css('display', 'block');
+                    $('#start').css('display', 'block');
                 });
             });
         });
-    }); */
+    });
 };
 
 
@@ -45,6 +47,7 @@ myApp.randomTrait = function () {
         event.preventDefault();
         //je cherche à obtenir un nombre en demandant à js combien d'élément avec la class .trait sil y a (length), ce chiffre me permet ensuite d'utiliser Math.floor(Math.random()) pour avoir un chiffre entier aléatoirement
 
+        $('.memorise-test').css('display', 'none');
         $('.trait').css('display', 'none');
         $('.active').removeClass('active');
         const sizeTrait = $('.trait').length;
@@ -113,7 +116,12 @@ myApp.feedBack = function () {
     //I use .off avoid that the function been called again and again...remove the button from previous action
     $('.answers').off().on('click', function (e) {
         e.preventDefault();
+
         const isAnswered = $('.feedback-user').hasClass('submitted');
+        //to handle error, if the user has already made a choice and try to click on other answer
+        if (isAnswered === true) {
+            alert('You have already made a choice, please press play to continue')
+        }
 
         if (isAnswered !== true) {
             $('.feedback-user').addClass('submitted');
@@ -121,20 +129,28 @@ myApp.feedBack = function () {
                 .css('display', 'block')
                 .append(`<i class="far fa-thumbs-down"></i>`);
             $('.feedback-positif').css('display', 'none');
+            $('.try-again').css('display', 'block');
         }
+
+
     })
 
     $('.linkAnswer').off().on('click', function (e) {
         e.preventDefault();
         const isAnswered = $('.feedback-user').hasClass('submitted');
         $('.active-question').css('color', 'inherit');
+        if (isAnswered === true) {
+            alert('You have already made a choice, please press play to continue')
+        }
 
         if (isAnswered !== true) {
             $('.feedback-user').addClass('submitted');
             $('.feedback-positif')
                 .css('display', 'block')
                 .append(`<i class="far fa-thumbs-up"></i>`);
+            $('.well-done').css('display', 'block');
             $('.feedback-negatif').css('display', 'none');
+
         }
     })
 
@@ -153,6 +169,9 @@ myApp.randCos = function () {
 
 
 myApp.cleanClass = function () {
+    $('memorise-test').css('display', 'none').attr('');
+    $('.try-again').css('display', 'none').attr('');
+    $('.well-done').css('display', 'none').attr('');
     $('.feedback-negatif').css('display', 'none');
     $('.feedback-positif').css('display', 'none');
     $('.feedback-user').removeClass('submitted');

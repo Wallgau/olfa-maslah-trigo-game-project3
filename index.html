@@ -6,6 +6,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
                 <title>MemoTrigoGame</title>
+                <link href="https://fonts.googleapis.com/css?family=Lato:700,900" rel="stylesheet">
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
                         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
                         crossorigin="anonymous">
@@ -14,22 +15,33 @@
 
         <body>
                 <header>
+
+                        <div>
+                                <p class="name-game">TrigoGame</p>
+                        </div>
+                        <p class="memorise-instruction">Stay focus for memorising the Unit Circle!</p>
+                        <p class="memorise-test">When you ready, press play to test your memory!</p>
+                        <p class="try-again">Don't give up, press play and try again!</p>
+                        <p class="well-done">Well done! Press play to continue!</p>
                         <nav>
-                                <a>
-                                        <p>TrigoGame</p>
-                                </a>
                                 <ul>
                                         <li><button class="play" id="start" aria-label="button for play"
                                                         title="test your memory and find the right value"><i
                                                                 class="far fa-play-circle play-icon"></i></button>
                                         </li>
-                                        <li><button class="notUsed"><i class="far fa-stop-circle"></i></button></li>
-                                        <li><button class="notUsed"><i class="far fa-pause-circle"></i></button></li>
+                                        <!--ici j'ai gardé les 2 buttons ci-dessous car je vais les intégrer dans mes strech goal mais ils ne sont pas utilisé pour ce MVP-->
+                                        <li><button class="notUsed"><i class="far fa-stop-circle"
+                                                                aria-label="button for stop"
+                                                                title="stop the game by pressing button stop"></i></button>
+                                        </li>
+                                        <li><button class="notUsed" aria-label="button for pause"
+                                                        title="pause the game by pressing button pause"><i
+                                                                class="far fa-pause-circle"></i></button></li>
                                 </ul>
                         </nav>
                 </header>
                 <main>
-                        <section class="circleMemo">
+                        <section class="circle-memo">
 
                                 <div class="wrapper">
                                         <div class="container">
@@ -312,9 +324,15 @@
                                 <div class="feedback feedback-negatif"></div>
 
                                 <section class="questions">
-                                        <button class="answers expecting-answer" data-answer=""></button>
-                                        <button class="answers expecting-answer" data-answer=""></button>
-                                        <button class="answers expecting-answer" data-answer=""></button>
+                                        <button class="answers expecting-answer" data-answer=""
+                                                aria-label="option of response"
+                                                title="button with one response option"></button>
+                                        <button class="answers expecting-answer" data-answer=""
+                                                aria-label="option of response"
+                                                title="button with one response option"></button>
+                                        <button class="answers expecting-answer" data-answer=""
+                                                aria-label="option of response"
+                                                title="button with one response option"></button>
 
 
                                 </section>
