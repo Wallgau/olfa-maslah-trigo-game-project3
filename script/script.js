@@ -73,12 +73,25 @@ myApp.randomValue = function () {
     const answerTrue = $('.active-question').attr('data-answer');
 
     //put this value randomly inside of one of the 3 buttons the true value, it will always be the index of 0 in the answersList array
-
     const randNumbButton = $('.answers').length;
     const randButton = Math.floor(Math.random() * randNumbButton) + 1;
     const randBut = $(`.answers:nth-of-type(${randButton})`);
-    randBut.addClass('linkAnswer').removeClass('answers');
-    const valueInsert = $('.linkAnswer').text(`${answerTrue}`);
+    randBut
+        .addClass('linkAnswer')
+        .removeClass('answers')
+        .removeClass('expectingAnswer')
+        .text(`${answerTrue}`);
+    $('.linkAnswer').text('').attr('');
+    $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
+    $('.answers').each(function () {
+        $(this).addClass('expectingAnswer').text('');
+    })
+
+    /*  const randNumbButton = $('.answers').length;
+     const randButton = Math.floor(Math.random() * randNumbButton) + 1;
+     const randBut = $(`.answers:nth-of-type(${randButton})`);
+     randBut.addClass('linkAnswer').removeClass('answers');
+     const valueInsert = $('.linkAnswer').text(`${answerTrue}`); */
     /* const trueAnswerIndex = answersPiList.findIndex(function (answer) {
         return answer === (`${answerTrue}`) */
 
@@ -98,13 +111,27 @@ myApp.randomValue = function () {
 
     const randValueBut = $(`.answers`).length;
     const randInput = Math.floor(Math.random() * randValueBut) + 1;
-    const randNumButton = $(`.answers:nth-of-type(${randInput})`);
+    /* const randNumButton = $(`.answers:nth-of-type(${randInput})`);
     randNumButton.addClass('ready');
     const nNewArrayLength = nNewArray.length;
     const randValueButton = Math.floor(Math.random() * (nNewArrayLength - 1));
     const valuenNewArray = nNewArray[randValueButton];
     const answerFalse = $('.ready').text(`${valuenNewArray}`)
-    myApp.feedBack();
+    myApp.feedBack(); */
+    const randValueBut = $('.answers').length;
+    const randInput = Math.floor(Math.random() * randValueBut) + 1;
+    const nNewArrayLength = arrayOfAnswer.length;
+    const randValueButton = Math.floor(Math.random() * (nNewArrayLength));
+    const valuenNewArray = arrayOfAnswer[randValueButton];
+    $(`.answers:nth-of-type(${randInput})`)
+        .text(`${valuenNewArray}`)
+        .removeClass('expectingAnswer')
+    let lastRandValueButton = Math.floor(Math.random() * (nNewArrayLength));
+    if (randValueButton === lastRandValueButton) {
+        lastRandValueButton = Math.floor(Math.random() * (nNewArrayLength));
+    }
+
+    $('.expectingAnswer').text(`${arrayOfAnswer[lastRandValueButton]}`).removeClass('expectingAnswer')
 
 
 }
