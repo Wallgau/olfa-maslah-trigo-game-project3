@@ -12,7 +12,6 @@ myApp.setup = function () {
 
     //ici on appelle les fonctions qui se produisent au click du button start
 
-    myApp.startTimer();
     myApp.randomTrait();
     /*  myApp.drawShapes(); */
 
@@ -81,66 +80,39 @@ myApp.randomValue = function () {
         .removeClass('answers')
         .removeClass('expectingAnswer')
         .text(`${answerTrue}`);
-    $('.linkAnswer').text('').attr('');
-    $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
-    $('.answers').each(function () {
-        $(this).addClass('expectingAnswer').text('');
-    })
-
-    /*  const randNumbButton = $('.answers').length;
-     const randButton = Math.floor(Math.random() * randNumbButton) + 1;
-     const randBut = $(`.answers:nth-of-type(${randButton})`);
-     randBut.addClass('linkAnswer').removeClass('answers');
-     const valueInsert = $('.linkAnswer').text(`${answerTrue}`); */
-    /* const trueAnswerIndex = answersPiList.findIndex(function (answer) {
-        return answer === (`${answerTrue}`) */
 
 
-    const newArray = answersPiList.filter(function (answer) {
-        if (answer !== answerTrue) {
-            return answer;
-        };
-
-    })
-
-    const nNewArray = newArray.filter(function (answer) {
-        if (answer !== undefined) {
-            return answer;
-        }
+    const wrongAnswers = answersPiList.filter(function (answer) {
+        return answer !== answerTrue
     })
 
     const randValueBut = $(`.answers`).length;
     const randInput = Math.floor(Math.random() * randValueBut) + 1;
-    /* const randNumButton = $(`.answers:nth-of-type(${randInput})`);
-    randNumButton.addClass('ready');
-    const nNewArrayLength = nNewArray.length;
-    const randValueButton = Math.floor(Math.random() * (nNewArrayLength - 1));
-    const valuenNewArray = nNewArray[randValueButton];
-    const answerFalse = $('.ready').text(`${valuenNewArray}`)
-    myApp.feedBack(); */
-    const randValueBut = $('.answers').length;
-    const randInput = Math.floor(Math.random() * randValueBut) + 1;
-    const nNewArrayLength = arrayOfAnswer.length;
-    const randValueButton = Math.floor(Math.random() * (nNewArrayLength));
-    const valuenNewArray = arrayOfAnswer[randValueButton];
+    const wrongAnswersLength = wrongAnswers.length;
+    const randValueButton = Math.floor(Math.random() * (wrongAnswersLength));
+    const valuenNewArray = wrongAnswers[randValueButton];
     $(`.answers:nth-of-type(${randInput})`)
         .text(`${valuenNewArray}`)
         .removeClass('expectingAnswer')
-    let lastRandValueButton = Math.floor(Math.random() * (nNewArrayLength));
-    if (randValueButton === lastRandValueButton) {
-        lastRandValueButton = Math.floor(Math.random() * (nNewArrayLength));
-    }
 
-    $('.expectingAnswer').text(`${arrayOfAnswer[lastRandValueButton]}`).removeClass('expectingAnswer')
+    //remove the answer form the wrong answer array to prevent duplicate
+    const randInputIndex = wrongAnswers.indexOf(valuenNewArray);
+    //remove the value
+    wrongAnswers.splice(1, randInputIndex);
 
+    const newWrongAnswersLength = wrongAnswers.length;
+    let lastRandValueButton = Math.floor(Math.random() * (newWrongAnswersLength));
+    $('.expectingAnswer')
+        .text(`${wrongAnswers[lastRandValueButton]}`)
+        .removeClass('expectingAnswer')
 
+    myApp.feedBack();
 }
 //to give a feedback about the choice answer provide by the user
 myApp.feedBack = function () {
     //I use .off avoid that the function been called again and again...remove the button from previous action
     $('.answers').off().on('click', function (e) {
         e.preventDefault();
-        console.log('No')
         const isAnswered = $('.feedback-user').hasClass('submitted');
 
         if (isAnswered !== true) {
@@ -151,8 +123,8 @@ myApp.feedBack = function () {
             $('.feedback-positif').css('display', 'none');
         }
     })
+
     $('.linkAnswer').off().on('click', function (e) {
-        console.log('yes')
         e.preventDefault();
         const isAnswered = $('.feedback-user').hasClass('submitted');
         $('.active-question').css('color', 'inherit');
@@ -169,14 +141,6 @@ myApp.feedBack = function () {
 }
 
 
-
-
-
-
-
-/* answersPiList.splice(trueAnswerIndex, 1)  */
-
-
 //make one cos become white randomly
 myApp.randCos = function () {
     const sizeCosValue = $('.active .cos').length;
@@ -185,9 +149,7 @@ myApp.randCos = function () {
     randCos.css({ 'color': 'white', 'border': '1px solid black' });
 }
 
-myApp.startTimer = function () {
-    console.log('start counter');
-}
+
 
 
 myApp.cleanClass = function () {
@@ -201,38 +163,11 @@ myApp.cleanClass = function () {
     //to avoid to get mutiple true answer
     $('.linkAnswer').text('').attr('');
     $('.linkAnswer').removeClass('linkAnswer').addClass('answers')
-    $('.ready').text('');
-    $('.ready').removeClass('ready');
+    $('.answers').each(function () {
+        $(this).addClass('expectingAnswer').text('');
+    });
 }
 $(document).ready(function () {
     /*  myApp.drawShapes(); */
     myApp.init();
 })
-
-//créer 3 inputs
-//créer un array ou object avec valeur 
-//mettre les valeurs dans les inputs dont forcément une vraie
-//faire apparaitre tout ça en même temps que le click play
-// au click de l'user récuperer sa valeur 
-//comparer valeur user à la valeur vraie
-//si vraie faire apparaitre la valeur dans le cercle
-// si faut changer background du bouton
-
-
-
-
-
-
-
-
-//mettre les valeurs dans les inputs dont forcément une vraie
-
-
-
-
-
-
-
-
-
-
