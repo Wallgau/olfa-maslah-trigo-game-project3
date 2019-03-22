@@ -1,19 +1,33 @@
 header{
-        padding: 1% 0;
-        background: lightgray;
-        margin-bottom: 10%;
+        padding: 1rem 0;
+        background: #262626;
+        margin-bottom: 5%;
         font-family: 'Lato', sans-serif;
         text-align:center;
 }
-header p{
+header h1{
+        margin:0;
+}
+header p, .name-game{
         text-transform: uppercase;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 700;
+        color:white;
 }
 header .name-game{
         font-weight: 900;
         font-size: 2rem;
+       
 
+}
+.name-game .tri{
+      color:blue;  
+}
+.name-game .go{
+      color:green;  
+}
+.name-game .game{
+      color:red;  
 }
 .memorise-test{
         display:none;
@@ -38,12 +52,12 @@ nav{
 }
 .play{
             margin: 0 auto;
-            font-size: 3rem;
+            font-size: 2rem;
             border-radius: 10px;
             background: white;
             box-shadow: 5px 5px gray;
-            width: 80%;
-            padding: 2%;
+            width: 10rem;
+            padding: 1%;
 }
 .play-icon{
         pointer-events: none;//when I click on the icon, allowed us to do like we were clicking on the button

@@ -161,6 +161,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   height: 320px;
   margin: 0 auto; }
 
+.theFeedBack p {
+  text-align: center;
+  text-transform: uppercase; }
+
 .oblique135 {
   position: absolute;
   -webkit-transform: rotateZ(45deg);
@@ -434,27 +438,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   width: 320px;
   /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
   height: 320px;
-  position: relative; }
-
-html {
-  height: 100vh; }
-
-body {
   position: relative;
-  max-height: 160vh;
-  height: 150vh; }
+  margin: 0 auto;
+  margin-bottom: 5%; }
 
 .wrapper {
   width: 98%;
   max-width: 1200px;
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
   margin: 0 auto; }
-
-.container {
-  margin: 0 auto;
-  margin-bottom: 10%; }
 
 button:hover {
   color: darkcyan;
@@ -477,63 +468,71 @@ button {
 
 .active-question {
   color: white;
-  border: 1px solid black; }
+  border: 1px solid #262626; }
 
 .questions {
-  text-align: center;
-  padding-bottom: 5%; }
+  text-align: center; }
 
 .questions button {
-  width: 20%;
-  padding: 2%;
+  width: 6rem;
+  padding: 1%;
   border-radius: 10px;
-  margin: 2%;
+  margin: 1rem;
   -webkit-box-shadow: 3px 3px gray;
-  box-shadow: 3px 3px gray; }
+  box-shadow: 3px 3px gray;
+  background-color: #262626;
+  color: white; }
 
 .feedback {
   text-align: center;
   font-size: 3rem; }
 
 @media screen and (min-width: 360px) {
-  body {
-    height: 130vh; }
   header {
     padding: 5% 0; } }
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    -webkit-transform: scale(1.38);
-    -ms-transform: scale(1.38);
-    transform: scale(1.38);
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
     max-width: 75%; }
-  body {
-    position: relative;
-    height: 110vh; }
-  #start {
-    width: 40%; }
-  .feedback {
-    margin-top: 15%; } }
+  /* #start{
+                width: 3rem
+        } */ }
 
 @media screen and (min-width: 1000px) {
   header {
     padding: 3% 0; } }
 
 header {
-  padding: 1% 0;
-  background: lightgray;
-  margin-bottom: 10%;
+  padding: 1rem 0;
+  background: #262626;
+  margin-bottom: 5%;
   font-family: 'Lato', sans-serif;
   text-align: center; }
 
-header p {
+header h1 {
+  margin: 0; }
+
+header p, .name-game {
   text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: 700; }
+  font-size: 1rem;
+  font-weight: 700;
+  color: white; }
 
 header .name-game {
   font-weight: 900;
   font-size: 2rem; }
+
+.name-game .tri {
+  color: blue; }
+
+.name-game .go {
+  color: green; }
+
+.name-game .game {
+  color: red; }
 
 .memorise-test {
   display: none; }
@@ -558,23 +557,23 @@ nav {
 
 .play {
   margin: 0 auto;
-  font-size: 3rem;
+  font-size: 2rem;
   border-radius: 10px;
   background: white;
   -webkit-box-shadow: 5px 5px gray;
   box-shadow: 5px 5px gray;
-  width: 80%;
-  padding: 2%; }
+  width: 10rem;
+  padding: 1%; }
 
 .play-icon {
   pointer-events: none; }
 
 footer {
-  bottom: 0;
-  width: 100%; }
+  display: none; }
 
 footer p {
   background-color: grey;
   padding: 1%;
   text-align: center;
-  margin: 0; }
+  margin: 0;
+  display: none; }

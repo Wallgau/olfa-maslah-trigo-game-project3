@@ -1,7 +1,10 @@
+
 .container {
         width: 320px; /*mettre un variable pour width et height parce que ceux sont les meme valeurs*/
         height: 320px;
         position: relative;
+        margin: 0 auto;
+        margin-bottom: 5%;
        
 }
 
@@ -10,13 +13,9 @@
 .wrapper{
        width: 98%;
        max-width: 1200px;
-       transform: scale(0.8);
        margin: 0 auto;
 }
-.container{
-        margin: 0 auto;
-        margin-bottom: 10%;
-}
+
 
 
 // start proposition answer and feedback of value to find
@@ -44,22 +43,24 @@ button{
 
 .active-question{
         color: white;
-        border: 1px solid black;
+        border: 1px solid #262626;
 }
 
 .questions{
         text-align:center;
-        padding-bottom: 5%;
+       
         
 }
 .questions button{
-        width: 20%;
-        padding: 2%;
+        width: 6rem;
+        padding: 1%;
         border-radius: 10px;
-        margin: 2%;
+        margin: 1rem;
         box-shadow: 3px 3px gray;
+        background-color: #262626;
+        color:white;
 }
-.feedback{
+.feedback {
         text-align: center;
         font-size: 3rem;
 }

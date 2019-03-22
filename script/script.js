@@ -27,7 +27,7 @@ myApp.drawShapes = function () {
             $('.line-green').fadeIn(5000, function () {
                 $('.line-green').fadeOut(1000)
                 $('.trait').fadeIn(2000, function () {
-                    $('.questions').css('display', 'block');
+
                     $('.memorise-instruction').css('display', 'none');
                     $('.memorise-test').css('display', 'block');
                     $('#start').css('display', 'block');
@@ -45,7 +45,7 @@ myApp.randomTrait = function () {
         event.preventDefault();
 
         //Get the length of the list of all the element with the class trait to get an random number between 0 and that value
-
+        $('.questions').css('display', 'block');
         $('.memorise-test').css('display', 'none');
         $('.trait').css('display', 'none');
         $('.active').removeClass('active');
@@ -70,7 +70,7 @@ myApp.randomValue = function () {
     const randNumber = Math.floor(Math.random() * sizeAngleValue) + 1;
     const randPi = $(`.active .pi:nth-of-type(${randNumber})`);
     randPi.addClass('active-question');
-    //the pi div with tha class of active question represent the one with the value who is hide by changing color text, so find, add in the ndex of 0 the value of that one ('active-question')
+    //the pi div with the class of active question represent the one with the value who is hide by changing color text, so find, add in the index of 0 the value of that one ('active-question')
     const answerTrue = $('.active-question').attr('data-answer');
 
     //put this value randomly inside of one of the 3 buttons the true value, it will always be the index of 0 in the answersList array
